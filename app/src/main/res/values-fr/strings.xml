@@ -621,6 +621,9 @@
     <string name="settings_privacy_pattern_protection_set">Modèle de déverrouillage défini</string>
     <string name="settings_advanced_export_data">Exporter les données</string>
     <string name="settings_advanced_export_data_summary">Sauvegarder les données au stockage externe, y compris la liste de téléchargement, la liste de recherche rapide</string>
+    <string name="settings_advanced_export_data_compatible">Exporter les données (compatible)</string>
+    <string name="settings_advanced_export_data_compatible_summary">Compatible avec l’application d’origine du dépôt upstream</string>
+    <string name="gallery_version_update_progress">Mise à jour de first_gid : %1$d/%2$d</string>
     <string name="settings_advanced_export_data_to">Données exportées à %s</string>
     <string name="settings_advanced_export_data_failed">Échec d\'exportation de données</string>
     <string name="settings_advanced_import_data">Importer les données</string>
@@ -1114,4 +1117,10 @@
     <string name="wifi_server_send_success">Message envoyé avec succès : %s</string>
     <string name="yes">Oui</string>
     <string name="yesterday_top_list">hier</string>
+    <string name="settings_update_downloaded_gallery_versions">Mettre à jour les informations de version des galeries</string>
+    <string name="settings_update_downloaded_gallery_versions_summary">Récupérer le GID de la galerie d’origine des galeries téléchargées pour les mises à jour</string>
+    <string name="settings_delete_old_gallery_versions">Supprimer les anciennes versions des galeries</string>
+    <string name="settings_delete_old_gallery_versions_summary">Analyser les chaînes de versions des galeries téléchargées et conserver la galerie complète utilisable la plus récente</string>
+    <string name="gallery_version_database_upgrade_prompt">Mettre à jour en arrière-plan les informations sur les chaînes de versions des galeries afin de déterminer, lors de la navigation, si une galerie peut être mise à jour depuis une ancienne version ? Si vous annulez, vous pourrez effectuer cette mise à jour ultérieurement dans les paramètres.</string>
+    <string name="gallery_version_update_in_background">Mettre à jour en arrière-plan</string>
 </resources>

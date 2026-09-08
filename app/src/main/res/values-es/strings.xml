@@ -630,6 +630,9 @@
     <string name="settings_privacy_pattern_protection_set">La protección por patrón ha sido configurado</string>
     <string name="settings_advanced_export_data">Exportar datos</string>
     <string name="settings_advanced_export_data_summary">Guardar datos en almacenamiento externo, tales como la lista de descarga, lista de búsqueda rápida, entre otros</string>
+    <string name="settings_advanced_export_data_compatible">Exportar datos (compatible)</string>
+    <string name="settings_advanced_export_data_compatible_summary">Compatible con la aplicación original del repositorio upstream</string>
+    <string name="gallery_version_update_progress">Actualizando first_gid: %1$d/%2$d</string>
     <string name="settings_advanced_export_data_to">Datos exportados en %s</string>
     <string name="settings_advanced_export_data_failed">Exportación de datos fallido</string>
     <string name="settings_advanced_import_data">Importar datos</string>
@@ -1120,4 +1123,10 @@
     <string name="dir_picker">Seleccionar carpeta</string>
     <string name="directory_not_writable">Esta carpeta no se puede escribir</string>
     <string name="news">noticias</string>
+    <string name="settings_update_downloaded_gallery_versions">Actualizar información de versiones de galerías</string>
+    <string name="settings_update_downloaded_gallery_versions_summary">Obtener el GID de la galería original de las galerías descargadas para actualizar galerías</string>
+    <string name="settings_delete_old_gallery_versions">Eliminar versiones antiguas de galerías</string>
+    <string name="settings_delete_old_gallery_versions_summary">Examinar las cadenas de versiones de las galerías descargadas y conservar la galería completa utilizable más reciente</string>
+    <string name="gallery_version_database_upgrade_prompt">¿Actualizar en segundo plano la información de las cadenas de versiones de las galerías para determinar durante la navegación si una galería puede actualizarse desde una versión anterior? Si cancela, podrá actualizarla más tarde desde Ajustes.</string>
+    <string name="gallery_version_update_in_background">Actualizar en segundo plano</string>
 </resources>

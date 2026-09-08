@@ -800,10 +800,12 @@
     <string name="settings_download_delete_missing_galleries_scanning">Checking local galleries</string>
     <string name="settings_download_delete_missing_galleries_done">Deleted %d locally missing galleries</string>
     <string name="settings_download_delete_missing_galleries_none">No locally missing galleries found</string>
-    <string name="settings_update_downloaded_gallery_versions">Update Downloaded Gallery Version Information</string>
-    <string name="settings_update_downloaded_gallery_versions_summary">Fetch the root gallery ID for downloaded galleries that do not have version information</string>
-    <string name="settings_delete_old_gallery_versions">Delete Old Galleries with a Downloaded Newer Version</string>
-    <string name="settings_delete_old_gallery_versions_summary">Keep the newest complete usable gallery in each known version family</string>
+    <string name="settings_update_downloaded_gallery_versions">Update Gallery Version Information</string>
+    <string name="settings_update_downloaded_gallery_versions_summary">Fetch the root gallery GID of downloaded galleries for gallery updates</string>
+    <string name="settings_delete_old_gallery_versions">Delete Old Gallery Versions</string>
+    <string name="settings_delete_old_gallery_versions_summary">Scan downloaded gallery version chains and keep the newest complete usable gallery</string>
+    <string name="gallery_version_database_upgrade_prompt">Update gallery version-chain information in the background so the app can determine while browsing whether a gallery can be updated from an older version? If you cancel, you can update it later from Settings.</string>
+    <string name="gallery_version_update_in_background">Update in background</string>
     <string name="gallery_version_update_background_notice">Version information will be updated in the background. Requests are sent in limited batches with pauses to avoid excessive traffic.</string>
     <string name="gallery_version_update_running">Gallery version information is already being updated</string>
     <string name="gallery_version_update_done">Version information updated: %1$d; unavailable: %2$d; retry later: %3$d</string>
@@ -852,6 +854,9 @@
     <string name="settings_privacy_pattern_protection_set">Pattern protection has been set</string>
     <string name="settings_advanced_export_data">Export data</string>
     <string name="settings_advanced_export_data_summary">Save data like download list, quick search list, to external storage</string>
+    <string name="settings_advanced_export_data_compatible">Export data (compatible)</string>
+    <string name="settings_advanced_export_data_compatible_summary">Compatible with the original app from the upstream repository</string>
+    <string name="gallery_version_update_progress">Updating first_gid: %1$d/%2$d</string>
     <string name="settings_advanced_export_data_to">Exported data to %s</string>
     <string name="settings_advanced_export_data_failed">Failed to export data</string>
     <string name="settings_advanced_import_data">Import data</string>

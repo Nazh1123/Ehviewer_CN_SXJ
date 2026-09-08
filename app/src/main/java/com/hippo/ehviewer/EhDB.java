@@ -80,6 +80,8 @@ import java.util.Objects;
 public class EhDB {
 
     private static final String TAG = EhDB.class.getSimpleName();
+    private static final int UPSTREAM_SCHEMA_VERSION = 7;
+    private static final int GALLERY_VERSION_INFO_SCHEMA_VERSION = 9;
 
     public static int MAX_HISTORY_COUNT = 100;
 
@@ -103,6 +105,10 @@ public class EhDB {
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             upgradeDB(db, oldVersion);
+            if (oldVersion < GALLERY_VERSION_INFO_SCHEMA_VERSION
+                    && newVersion >= GALLERY_VERSION_INFO_SCHEMA_VERSION) {
+                Settings.setGalleryVersionUpdatePromptPending(true);
+            }
         }
     }
 
@@ -943,6 +949,14 @@ public class EhDB {
     }
 
     public static synchronized boolean exportDB(Context context, File file) {
+        return exportDB(context, file, false);
+    }
+
+    public static synchronized boolean exportDBCompatible(Context context, File file) {
+        return exportDB(context, file, true);
+    }
+
+    private static boolean exportDB(Context context, File file, boolean upstreamCompatible) {
         final String ehExportName = "eh.export.db";
 
         // Ensure source database has ARCHIVE_URI column
@@ -979,6 +993,9 @@ public class EhDB {
                     return false;
                 if (!copyDao(sDaoSession.getFilterDao(), exportSession.getFilterDao()))
                     return false;
+                if (upstreamCompatible) {
+                    makeUpstreamCompatible(db);
+                }
             }
 
             // Copy export db to data dir
@@ -1007,6 +1024,65 @@ public class EhDB {
         }
     }
 
+    private static void makeUpstreamCompatible(SQLiteDatabase db) {
+        db.beginTransaction();
+        try {
+            db.execSQL("CREATE TABLE \"DOWNLOADS_UPSTREAM\" (" +
+                    "\"GID\" INTEGER PRIMARY KEY NOT NULL ," +
+                    "\"TOKEN\" TEXT," +
+                    "\"TITLE\" TEXT," +
+                    "\"TITLE_JPN\" TEXT," +
+                    "\"THUMB\" TEXT," +
+                    "\"CATEGORY\" INTEGER NOT NULL ," +
+                    "\"POSTED\" TEXT," +
+                    "\"UPLOADER\" TEXT," +
+                    "\"RATING\" REAL NOT NULL ," +
+                    "\"SIMPLE_LANGUAGE\" TEXT," +
+                    "\"STATE\" INTEGER NOT NULL ," +
+                    "\"LEGACY\" INTEGER NOT NULL ," +
+                    "\"TIME\" INTEGER NOT NULL ," +
+                    "\"LABEL\" TEXT," +
+                    "\"ARCHIVE_URI\" TEXT)");
+            db.execSQL("INSERT INTO \"DOWNLOADS_UPSTREAM\" (" +
+                    "\"GID\", \"TOKEN\", \"TITLE\", \"TITLE_JPN\", \"THUMB\", " +
+                    "\"CATEGORY\", \"POSTED\", \"UPLOADER\", \"RATING\", " +
+                    "\"SIMPLE_LANGUAGE\", \"STATE\", \"LEGACY\", \"TIME\", " +
+                    "\"LABEL\", \"ARCHIVE_URI\") SELECT " +
+                    "\"GID\", \"TOKEN\", \"TITLE\", \"TITLE_JPN\", \"THUMB\", " +
+                    "\"CATEGORY\", \"POSTED\", \"UPLOADER\", \"RATING\", " +
+                    "\"SIMPLE_LANGUAGE\", \"STATE\", \"LEGACY\", \"TIME\", " +
+                    "\"LABEL\", \"ARCHIVE_URI\" FROM \"DOWNLOADS\"");
+            db.execSQL("DROP TABLE \"DOWNLOADS\"");
+            db.execSQL("ALTER TABLE \"DOWNLOADS_UPSTREAM\" RENAME TO \"DOWNLOADS\"");
+
+            db.execSQL("CREATE TABLE \"QUICK_SEARCH_UPSTREAM\" (" +
+                    "\"_id\" INTEGER PRIMARY KEY ," +
+                    "\"NAME\" TEXT," +
+                    "\"MODE\" INTEGER NOT NULL ," +
+                    "\"CATEGORY\" INTEGER NOT NULL ," +
+                    "\"KEYWORD\" TEXT," +
+                    "\"ADVANCE_SEARCH\" INTEGER NOT NULL ," +
+                    "\"MIN_RATING\" INTEGER NOT NULL ," +
+                    "\"PAGE_FROM\" INTEGER NOT NULL ," +
+                    "\"PAGE_TO\" INTEGER NOT NULL ," +
+                    "\"TIME\" INTEGER NOT NULL )");
+            db.execSQL("INSERT INTO \"QUICK_SEARCH_UPSTREAM\" (" +
+                    "\"_id\", \"NAME\", \"MODE\", \"CATEGORY\", \"KEYWORD\", " +
+                    "\"ADVANCE_SEARCH\", \"MIN_RATING\", \"PAGE_FROM\", " +
+                    "\"PAGE_TO\", \"TIME\") SELECT " +
+                    "\"_id\", \"NAME\", \"MODE\", \"CATEGORY\", \"KEYWORD\", " +
+                    "\"ADVANCE_SEARCH\", \"MIN_RATING\", \"PAGE_FROM\", " +
+                    "\"PAGE_TO\", \"TIME\" FROM \"QUICK_SEARCH\"");
+            db.execSQL("DROP TABLE \"QUICK_SEARCH\"");
+            db.execSQL("ALTER TABLE \"QUICK_SEARCH_UPSTREAM\" RENAME TO \"QUICK_SEARCH\"");
+
+            db.setVersion(UPSTREAM_SCHEMA_VERSION);
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+    }
+
     /**
      * @param file The db file
      * @return error string, null for no error
@@ -1017,6 +1093,8 @@ public class EhDB {
                     file.getPath(), null, SQLiteDatabase.NO_LOCALIZED_COLLATORS);
             int newVersion = DaoMaster.SCHEMA_VERSION;
             int oldVersion = db.getVersion();
+            boolean needsGalleryVersionInfoUpdate =
+                    oldVersion < GALLERY_VERSION_INFO_SCHEMA_VERSION;
             if (oldVersion < newVersion) {
                 upgradeDB(db, oldVersion);
                 db.setVersion(newVersion);
@@ -1097,6 +1175,10 @@ public class EhDB {
                 if (!currentGalleryTags.contains(tags)) {
                     insertGalleryTags(tags);
                 }
+            }
+
+            if (needsGalleryVersionInfoUpdate) {
+                Settings.setGalleryVersionUpdatePromptPending(true);
             }
 
             return null;

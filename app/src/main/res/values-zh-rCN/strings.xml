@@ -708,10 +708,12 @@
     <string name="settings_download_delete_missing_galleries_scanning">正在检查本地画廊</string>
     <string name="settings_download_delete_missing_galleries_done">已删除 %d 个本地不存在的画廊</string>
     <string name="settings_download_delete_missing_galleries_none">没有本地不存在的画廊</string>
-    <string name="settings_update_downloaded_gallery_versions">更新已下载画廊的版本信息</string>
-    <string name="settings_update_downloaded_gallery_versions_summary">为尚无版本信息的已下载画廊获取最初父画廊 GID</string>
-    <string name="settings_delete_old_gallery_versions">删除存在已下载新版本的旧版本画廊</string>
-    <string name="settings_delete_old_gallery_versions_summary">每个已知版本系列保留最新的完整可用画廊</string>
+    <string name="settings_update_downloaded_gallery_versions">更新画廊版本信息</string>
+    <string name="settings_update_downloaded_gallery_versions_summary">获取已下载画廊的最初版本画廊GID，用于画廊更新</string>
+    <string name="settings_delete_old_gallery_versions">删除旧版本画廊</string>
+    <string name="settings_delete_old_gallery_versions_summary">扫描检查已下载画廊版本链，保留最新完整可用画廊</string>
+    <string name="gallery_version_database_upgrade_prompt">是否后台更新画廊版本链信息，用于在浏览画廊时判断是否由旧版本更新。如果选择取消，后续可在设置菜单中进行更新。</string>
+    <string name="gallery_version_update_in_background">后台更新</string>
     <string name="gallery_version_update_background_notice">版本信息将在后台更新。请求会分批发送并定时暂停，以避免请求过于频繁。</string>
     <string name="gallery_version_update_running">正在更新画廊版本信息</string>
     <string name="gallery_version_update_done">版本信息更新完成：已更新 %1$d；不可用 %2$d；稍后重试 %3$d</string>
@@ -763,6 +765,9 @@
     <string name="settings_privacy_pattern_protection_set">已设置图案保护</string>
     <string name="settings_advanced_export_data">导出数据</string>
     <string name="settings_advanced_export_data_summary">保存数据至外置存储器，例如下载列表，书签列表</string>
+    <string name="settings_advanced_export_data_compatible">导出数据 (兼容)</string>
+    <string name="settings_advanced_export_data_compatible_summary">兼容上游仓库的原版App</string>
+    <string name="gallery_version_update_progress">正在更新 first_gid：%1$d/%2$d</string>
     <string name="settings_advanced_export_data_to">已导出数据至 %s</string>
     <string name="settings_advanced_export_data_failed">导出数据失败</string>
     <string name="settings_advanced_import_data">导入数据</string>

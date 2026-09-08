@@ -630,6 +630,9 @@
     <string name="settings_privacy_pattern_protection_set">パターン保護は設定されています</string>
     <string name="settings_advanced_export_data">データをエクスポート</string>
     <string name="settings_advanced_export_data_summary">ダウンロードリストやクイック検索などのデータを内部ストレージにエクスポートします</string>
+    <string name="settings_advanced_export_data_compatible">データをエクスポート（互換）</string>
+    <string name="settings_advanced_export_data_compatible_summary">上流リポジトリのオリジナル版アプリと互換性があります</string>
+    <string name="gallery_version_update_progress">first_gid を更新中：%1$d/%2$d</string>
     <string name="settings_advanced_export_data_to">データを「%s」にエクスポート</string>
     <string name="settings_advanced_export_data_failed">データをエクスポートできませんでした</string>
     <string name="settings_advanced_import_data">データをインポート</string>
@@ -1066,4 +1069,10 @@
     <string name="webview_unavailable_message">システムに付属の Android システム WebView を正常にロードできません (破損しているか、システム アーキテクチャと一致していない可能性があります)。アプリストアで「Android System WebView」を更新するか、開発者向けオプションでWebViewの実装を切り替えるか、「Cookieによるログイン」をご利用ください。</string>
     <string name="webview_unavailable_title">システム WebView は使用できません</string>
     <string name="settings_eh_show_gallery_rating">ギャラリーの評価を表示する</string>
+    <string name="settings_update_downloaded_gallery_versions">ギャラリーのバージョン情報を更新</string>
+    <string name="settings_update_downloaded_gallery_versions_summary">ダウンロード済みギャラリーの初版ギャラリー GID を取得し、ギャラリーの更新に使用します</string>
+    <string name="settings_delete_old_gallery_versions">古いバージョンのギャラリーを削除</string>
+    <string name="settings_delete_old_gallery_versions_summary">ダウンロード済みギャラリーのバージョン履歴を確認し、最新の完全に利用可能なギャラリーを残します</string>
+    <string name="gallery_version_database_upgrade_prompt">ギャラリーの閲覧時に旧バージョンから更新できるかどうかを判断するため、ギャラリーのバージョン履歴情報をバックグラウンドで更新しますか？キャンセルした場合は、後で設定メニューから更新できます。</string>
+    <string name="gallery_version_update_in_background">バックグラウンドで更新</string>
 </resources>

@@ -679,6 +679,9 @@
     <string name="settings_privacy_pattern_protection_set">패턴 보호가 설정됨</string>
     <string name="settings_advanced_export_data">데이터 내보내기</string>
     <string name="settings_advanced_export_data_summary">다운로드 목록, 빠른 검색 목록 등의 데이터를 외부 저장소에 저장</string>
+    <string name="settings_advanced_export_data_compatible">데이터 내보내기 (호환)</string>
+    <string name="settings_advanced_export_data_compatible_summary">업스트림 저장소의 원본 앱과 호환됩니다</string>
+    <string name="gallery_version_update_progress">first_gid 업데이트 중: %1$d/%2$d</string>
     <string name="settings_advanced_export_data_to">%s 경로에 데이터를 내보냈습니다.</string>
     <string name="settings_advanced_export_data_failed">데이터를 내보내지 못했습니다.</string>
     <string name="settings_advanced_import_data">데이터 가져오기</string>
@@ -1142,4 +1145,10 @@
     <string name="wifi_server_receive_message_unknown">알 수 없는 데이터 유형</string>
     <string name="wifi_server_send_fail">메시지 전송 실패: %s</string>
     <string name="wifi_server_send_success">메시지가 성공적으로 전송되었습니다: %s</string>
+    <string name="settings_update_downloaded_gallery_versions">갤러리 버전 정보 업데이트</string>
+    <string name="settings_update_downloaded_gallery_versions_summary">다운로드한 갤러리의 최초 버전 갤러리 GID를 가져와 갤러리 업데이트에 사용합니다</string>
+    <string name="settings_delete_old_gallery_versions">이전 버전 갤러리 삭제</string>
+    <string name="settings_delete_old_gallery_versions_summary">다운로드한 갤러리의 버전 체인을 검사하고 완전하게 사용 가능한 최신 갤러리를 유지합니다</string>
+    <string name="gallery_version_database_upgrade_prompt">갤러리를 탐색할 때 이전 버전에서 업데이트할 수 있는지 판단하기 위해 갤러리 버전 체인 정보를 백그라운드에서 업데이트하시겠습니까? 취소하면 나중에 설정 메뉴에서 업데이트할 수 있습니다.</string>
+    <string name="gallery_version_update_in_background">백그라운드에서 업데이트</string>
 </resources>

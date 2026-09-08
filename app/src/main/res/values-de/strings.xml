@@ -686,6 +686,9 @@
     <string name="settings_privacy_pattern_protection_set">Sperrmuster festgelegt</string>
     <string name="settings_advanced_export_data">Daten exportieren</string>
     <string name="settings_advanced_export_data_summary">Daten, z. B. Downloadliste, Sofortsucheliste, zum externen Speicher speichern</string>
+    <string name="settings_advanced_export_data_compatible">Daten exportieren (kompatibel)</string>
+    <string name="settings_advanced_export_data_compatible_summary">Kompatibel mit der Original-App aus dem Upstream-Repository</string>
+    <string name="gallery_version_update_progress">first_gid wird aktualisiert: %1$d/%2$d</string>
     <string name="settings_advanced_export_data_to">Daten wurden zu %s exportiert</string>
     <string name="settings_advanced_export_data_failed">Datenexport gescheitert</string>
     <string name="settings_advanced_import_data">Daten importieren</string>
@@ -1057,4 +1060,10 @@
     <string name="theme_black">schwarzes Thema</string>
     <string name="theme_dark">dunkles Thema</string>
     <string name="theme_light">Helles Thema</string>
+    <string name="settings_update_downloaded_gallery_versions">Galerieversionsinformationen aktualisieren</string>
+    <string name="settings_update_downloaded_gallery_versions_summary">Die GID der ursprünglichen Galerie für heruntergeladene Galerien abrufen, um Galerieaktualisierungen zu ermöglichen</string>
+    <string name="settings_delete_old_gallery_versions">Alte Galerieversionen löschen</string>
+    <string name="settings_delete_old_gallery_versions_summary">Versionsketten heruntergeladener Galerien prüfen und die neueste vollständige, verwendbare Galerie behalten</string>
+    <string name="gallery_version_database_upgrade_prompt">Galerie-Versionsketteninformationen im Hintergrund aktualisieren, damit beim Durchsuchen erkannt werden kann, ob eine Galerie aus einer älteren Version aktualisiert werden kann? Wenn Sie abbrechen, können Sie die Aktualisierung später in den Einstellungen durchführen.</string>
+    <string name="gallery_version_update_in_background">Im Hintergrund aktualisieren</string>
 </resources>
