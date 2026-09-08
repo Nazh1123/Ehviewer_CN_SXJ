@@ -1621,6 +1621,13 @@ public class GalleryActivity extends EhActivity implements SeekBar.OnSeekBarChan
     @Override
     public void onLongPressPage(int index, boolean nextPageArea,
                                 boolean previousPageArea) {
+        if (previousPageArea) {
+            GalleryPageView page = mGalleryView != null
+                    ? mGalleryView.findPageByIndex(index) : null;
+            ImageTexture texture = page != null ? page.getImageTexture() : null;
+            // Saving the previous page is only available while viewing an animation.
+            previousPageArea = texture != null && texture.isControllableAnimation();
+        }
         NotifyTask task = mNotifyTaskPool.pop();
         if (task == null) {
             task = new NotifyTask();
